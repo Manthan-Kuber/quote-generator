@@ -1,9 +1,12 @@
 import { useState } from "react";
 import GlobalStyles from "./GlobalStyles";
-import { AppWrapper, Footer, FooterText, Nav,RandomContainer } from "./App.styles";
-import { ImSpinner11 } from "react-icons/im";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+import { AppWrapper } from "./App.styles";
+import { Route, Routes } from "react-router-dom";
+import Home from "./components/Home/Home";
 
-const App: React.FC = () => {
+const App: React.FunctionComponent = () => {
   const [data, setData] = useState<dataItem>();
 
   const fetchData = async (): Promise<void> => {
@@ -28,20 +31,11 @@ const App: React.FC = () => {
     <>
       <GlobalStyles />
       <AppWrapper>
-        <Nav>
-          <RandomContainer>
-            <h1>Random</h1>
-            <ImSpinner11 className="icon" />
-          </RandomContainer>
-        </Nav>
-        <Footer>
-          <FooterText>
-            Created by{" "}
-            <b>
-              <u>Manthan Kuber</u>
-            </b>
-          </FooterText>
-        </Footer>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+        <Footer />
       </AppWrapper>
     </>
   );

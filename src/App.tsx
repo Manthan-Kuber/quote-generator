@@ -1,34 +1,42 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import GlobalStyles from "./GlobalStyles";
+import { AppWrapper, Footer, FooterText } from "./App.styles";
 
 const App: React.FC = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<dataItem>();
 
-  useEffect(() => {
-    console.log("Ran useEffect");
-    const fetchData = async (): Promise<void> => {
-      const response = await fetch(
-        "https://quote-garden.herokuapp.com/api/v3/quotes"
-      );
-      const data = await response.json();
-      setData(data);
-      console.log(data.data[0]);
-    };
-    fetchData();
-  }, []);
+  const fetchData = async (): Promise<void> => {
+    const response = await fetch("https://api.quotable.io/random");
+    const data = await response.json();
+    setData(data);
+    console.log(data);
+  };
 
   interface dataItem {
     _id: string;
-    quoteText: string;
-    quoteAuthor: string;
-    quoteGenre: string;
-    __v: 0;
+    author: string;
+    authorSlug: string;
+    content: string;
+    dataAdded: string;
+    dataModified: string;
+    length: number;
+    tags: Array<string>;
   }
 
   return (
     <>
       <GlobalStyles />
-      <h1>HI</h1>
+      <AppWrapper>
+        <h1>HI</h1>
+        <Footer>
+          <FooterText>
+            Created by{" "}
+            <b>
+              <u>Manthan Kuber</u>
+            </b>
+          </FooterText>
+        </Footer>
+      </AppWrapper>
     </>
   );
 };

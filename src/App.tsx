@@ -1,6 +1,7 @@
 import { useState } from "react";
 import GlobalStyles from "./GlobalStyles";
-import { AppWrapper, Footer, FooterText } from "./App.styles";
+import { AppWrapper, Footer, FooterText, Nav,RandomContainer } from "./App.styles";
+import { ImSpinner11 } from "react-icons/im";
 
 const App: React.FC = () => {
   const [data, setData] = useState<dataItem>();
@@ -27,7 +28,12 @@ const App: React.FC = () => {
     <>
       <GlobalStyles />
       <AppWrapper>
-        <h1>HI</h1>
+        <Nav>
+          <RandomContainer>
+            <h1>Random</h1>
+            <ImSpinner11 className="icon" />
+          </RandomContainer>
+        </Nav>
         <Footer>
           <FooterText>
             Created by{" "}

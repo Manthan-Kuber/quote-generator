@@ -7,16 +7,6 @@ export const Container = styled.main`
   margin-block: auto;
 `;
 
-export const QuoteContainer = styled.section`
-  border-left: 8px solid var(--clr-primary);
-  font: 500 3.6rem var(--ff-raleway);
-  align-self: center;
-  p {
-    padding-left: 10rem;
-    max-width: 32ch;
-  }
-`;
-
 export const AuthorContainer = styled.div`
   margin-top: 11rem;
   display: flex;

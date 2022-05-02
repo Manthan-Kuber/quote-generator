@@ -1,18 +1,16 @@
-import { AuthorContainer, Container, QuoteContainer } from "./Home.styles";
+import { AuthorContainer, Container } from "./HomePage.styles";
 import React from "react";
-import { dataItem } from "../../types";
 import { MdArrowRightAlt } from "react-icons/md";
+import Quote from "../../components/Quote/Quote";
+import { DataProps } from "../../types";
+import { useNavigate } from "react-router-dom";
 
-interface BoxProps {
-  data: dataItem | undefined;
-}
 
-const Home: React.FunctionComponent<BoxProps> = ({ data }) => {
+const Home: React.FunctionComponent<DataProps> = ({ data }) => {
+  let navigate = useNavigate();
   return (
     <Container>
-      <QuoteContainer>
-        <p>“{data?.content}”</p>
-      </QuoteContainer>
+      <Quote data={data}/>
       <AuthorContainer>
         <div>
           <h3>{data?.author}</h3>

@@ -12,3 +12,17 @@ export interface dataItem {
 export interface DataProps {
   data: dataItem | undefined;
 }
+
+interface quoteItem extends dataItem {
+  __v: number;
+  authorId: string;
+}
+
+export interface authorQuotesData {
+  count: number;
+  totalCount: number;
+  page: number;
+  totalPages: number;
+  lastItemIndex: number | null;
+  results: quoteItem[];
+}

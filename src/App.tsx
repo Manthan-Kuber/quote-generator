@@ -4,30 +4,32 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import { AppWrapper } from "./App.styles";
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home/HomePage";
 import { dataItem } from "./types";
+import AuthorPage from "./pages/Author/AuthorPage";
+import HomePage from "./pages/Home/HomePage";
+
+export const BaseUrl = "https://api.quotable.io";
 
 const App: React.FunctionComponent = () => {
   const [data, setData] = useState<dataItem>();
 
   const fetchData = async (): Promise<void> => {
-    const response = await fetch("https://api.quotable.io/random");
+    const response = await fetch(`${BaseUrl}/random`);
     const data = await response.json();
     setData(data);
-    console.log(data);
   };
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  const HomeProps = {
+  const DataProps = {
     data: data,
   };
 
   const NavProps = {
-    onClick:fetchData
-  }
+    onClick: fetchData,
+  };
 
   return (
     <>
@@ -35,7 +37,8 @@ const App: React.FunctionComponent = () => {
       <AppWrapper>
         <Navbar {...NavProps} />
         <Routes>
-          <Route path="/" element={<Home {...HomeProps} />} />
+          <Route path="/" element={<HomePage {...DataProps} />} />
+          <Route path="/author" element={<AuthorPage {...DataProps} />} />
         </Routes>
         <Footer />
       </AppWrapper>

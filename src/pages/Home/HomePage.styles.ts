@@ -13,7 +13,7 @@ export const AuthorContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 4rem 3rem;
-  width: 50%;
+  width: min(95%,55rem);
   align-self: center;
   transition: transform ease-in 0.3s, color ease-in-out 0.6s,
     background-color ease-in-out 1s;

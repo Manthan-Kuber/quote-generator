@@ -25,11 +25,15 @@ const App: React.FunctionComponent = () => {
     data: data,
   };
 
+  const NavProps = {
+    onClick:fetchData
+  }
+
   return (
     <>
       <GlobalStyles />
       <AppWrapper>
-        <Navbar />
+        <Navbar {...NavProps} />
         <Routes>
           <Route path="/" element={<Home {...HomeProps} />} />
         </Routes>

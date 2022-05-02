@@ -3,7 +3,6 @@ import { QuoteWrapper, Title } from "./AuthorPage.styles.";
 import { BaseUrl } from "../../App";
 import { useState, useEffect } from "react";
 import Quote from "../../components/Quote/Quote";
-import { motion } from "framer-motion";
 
 const AuthorPage: React.FunctionComponent<DataProps> = ({ data }) => {
   const [authorQuotes, setAuthorQuotes] = useState<authorQuotesData>();
@@ -27,7 +26,7 @@ const AuthorPage: React.FunctionComponent<DataProps> = ({ data }) => {
       <Title>{data?.author}</Title>
       <QuoteWrapper>
         {authorQuotes?.results.map((quote,index) => (
-          <Quote data={quote} index={index} />
+          <Quote key={quote._id} data={quote} index={index} />
         ))}
       </QuoteWrapper>
     </div>

@@ -11,6 +11,7 @@ export interface dataItem {
 
 export interface DataProps {
   data: dataItem | undefined;
+  index?: number;
 }
 
 interface quoteItem extends dataItem {

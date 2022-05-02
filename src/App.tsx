@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import GlobalStyles from "./GlobalStyles";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import { AppWrapper } from "./App.styles";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home/Home";
+import { dataItem } from "./types";
 
 const App: React.FunctionComponent = () => {
   const [data, setData] = useState<dataItem>();
@@ -16,16 +17,13 @@ const App: React.FunctionComponent = () => {
     console.log(data);
   };
 
-  interface dataItem {
-    _id: string;
-    author: string;
-    authorSlug: string;
-    content: string;
-    dataAdded: string;
-    dataModified: string;
-    length: number;
-    tags: Array<string>;
-  }
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const HomeProps = {
+    data: data,
+  };
 
   return (
     <>
@@ -33,7 +31,7 @@ const App: React.FunctionComponent = () => {
       <AppWrapper>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home {...HomeProps} />} />
         </Routes>
         <Footer />
       </AppWrapper>

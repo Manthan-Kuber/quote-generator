@@ -19,7 +19,6 @@ const App = () => {
     const data = await response.json();
     setData(data);
     setLoading(false);
-    console.log(data,loading);
   };
   
   useEffect(() => {

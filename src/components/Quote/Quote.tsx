@@ -16,7 +16,6 @@ const Quote = ({ data, index }: DataProps) => {
   };
 
   async function copyTextToClipboard(text: string) {
-    console.log(text);
     if ("clipboard" in navigator) {
       return await navigator.clipboard.writeText(text);
     } else {
@@ -42,11 +41,7 @@ const Quote = ({ data, index }: DataProps) => {
       whileHover={{ scale: 1.1 }}
     >
       <p ref={quoteRef}>“{data?.content}”</p>
-      {document.queryCommandSupported("copy") && isCopied ? (
-        <CheckIcon />
-      ) : (
-        <CopyToClipboardIcon onClick={copyOnClick} />
-      )}
+      {isCopied ? <CheckIcon /> : <CopyToClipboardIcon onClick={copyOnClick} />}
     </QuoteContainer>
   );
 };

@@ -1,4 +1,13 @@
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components";
+
+const spin = keyframes`
+  from{
+    transform:rotate(0deg);
+  }
+  to{
+    transform:rotate(360deg) ;
+  }
+`;
 
 export const Nav = styled.nav`
   color: #333;
@@ -11,14 +20,20 @@ export const RandomContainer = styled.div`
   display: flex;
   cursor: pointer;
   gap: 0.5rem;
+  transition: all 0.1s ease-in-out;
   .icon {
-    transition: transform 1s;
+    animation: 0.69s ${spin} linear infinite;
+    animation-play-state: paused;
     position: relative;
     top: 8px;
   }
   &:hover {
+    transform: scale(1.1);
     .icon {
-      transform: rotate(360deg);
+      animation-play-state: running;
     }
+  }
+  &:active {
+    transform: scale(0.9);
   }
 `;

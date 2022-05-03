@@ -18,6 +18,7 @@ const Quote: React.FunctionComponent<DataProps> = ({ data, index }) => {
       variants={quoteAnimation}
       initial="hidden"
       animate="show"
+      whileHover={{ scale: 1.1  }}
     >
       <p>“{data?.content}”</p>
     </QuoteContainer>

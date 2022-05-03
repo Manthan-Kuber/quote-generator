@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
-const spin = keyframes`
+export const spin = keyframes`
   from{
     transform:rotate(0deg);
   }

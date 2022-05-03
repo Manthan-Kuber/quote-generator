@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { CgSpinnerTwoAlt } from "react-icons/cg";
+import { spin } from "../../components/Navbar/Navbar.styles";
 
 export const Title = styled.h1`
     margin: 5rem 0 8rem 10rem;
@@ -19,4 +21,11 @@ export const QuoteWrapper = styled.div`
     &:last-child{
         margin-bottom: 8rem;
     }
+`
+export const LoadingIcon = styled(CgSpinnerTwoAlt)`
+    position: absolute;
+    inset: 50%;
+    animation: 0.69s ${spin} infinite linear;
+    display: grid;
+    place-items: center;
 `

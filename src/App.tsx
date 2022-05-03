@@ -12,19 +12,24 @@ export const BaseUrl = "https://api.quotable.io";
 
 const App = () => {
   const [data, setData] = useState<dataItem>();
+  const [loading, setLoading] = useState(true)
 
   const fetchData = async (): Promise<void> => {
     const response = await fetch(`${BaseUrl}/random`);
     const data = await response.json();
     setData(data);
+    setLoading(false);
+    console.log(data,loading);
   };
-
+  
   useEffect(() => {
     fetchData();
   }, []);
 
   const DataProps = {
     data: data,
+    loading:loading,
+    setLoading:setLoading
   };
 
   return (

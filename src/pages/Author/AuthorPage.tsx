@@ -7,10 +7,9 @@ import { motion } from "framer-motion";
 
 const AuthorPage = ({ data }:DataProps) => {
   const [authorQuotes, setAuthorQuotes] = useState<authorQuotesData>();
-  const authorName = data?.authorSlug;
   const fetchAuthorQuotes = async (): Promise<void> => {
     const response = await fetch(
-      `${BaseUrl}/search/quotes?query=${authorName}&fields=author`
+      `${BaseUrl}/search/quotes?query=${data?.authorSlug}&fields=author`
     );
     const respdata = await response.json();
     setAuthorQuotes(respdata);

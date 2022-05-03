@@ -27,15 +27,11 @@ const App = () => {
     data: data,
   };
 
-  const NavProps = {
-    onClick: fetchData,
-  };
-
   return (
     <>
       <GlobalStyles />
       <AppWrapper>
-        <Navbar {...NavProps} />
+        <Navbar onClick={fetchData} />
         <Routes>
           <Route path="/" element={<HomePage {...DataProps} />} />
           <Route path="/author" element={<AuthorPage {...DataProps} />} />

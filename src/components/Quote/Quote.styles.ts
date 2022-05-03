@@ -15,14 +15,16 @@ export const QuoteContainer = styled.section`
 
 export const CopyToClipboardIcon = styled(HiOutlineClipboardCopy)`
   position: absolute;
-  bottom: 25%;
+  top: 50%;
+  transform: translateY(-50%);
   left: 2%;
   cursor: pointer;
   color: #787b7f;
 `;
 export const CheckIcon = styled(HiCheck)`
   position: absolute;
-  bottom: 25%;
+  top: 50%;
+  transform: translateY(-50%);
   left: 2%;
   cursor: pointer;
   color: #787b7f;

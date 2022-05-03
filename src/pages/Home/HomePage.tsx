@@ -5,7 +5,7 @@ import Quote from "../../components/Quote/Quote";
 import { DataProps } from "../../types";
 import { useNavigate } from "react-router-dom";
 
-const HomePage: React.FunctionComponent<DataProps> = ({ data }) => {
+const HomePage = ({ data }:DataProps) => {
   let navigate = useNavigate();
   return (
     <Container>

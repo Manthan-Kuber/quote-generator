@@ -1,6 +1,6 @@
 import { StyledFooter, FooterText } from "./Footer.styles";
 
-const Footer: React.FunctionComponent = () => {
+const Footer = () => {
   return (
     <StyledFooter>
       <FooterText>

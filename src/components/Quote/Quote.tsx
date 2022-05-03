@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { DataProps } from "../../types";
 import { QuoteContainer } from "./Quote.styles";
 
-const Quote: React.FunctionComponent<DataProps> = ({ data, index }) => {
+const Quote = ({ data, index }:DataProps) => {
   const quoteAnimation = {
     hidden: { opacity: 0, x: -100 },
     show: {

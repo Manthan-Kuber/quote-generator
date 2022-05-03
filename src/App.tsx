@@ -10,7 +10,7 @@ import HomePage from "./pages/Home/HomePage";
 
 export const BaseUrl = "https://api.quotable.io";
 
-const App: React.FunctionComponent = () => {
+const App = () => {
   const [data, setData] = useState<dataItem>();
 
   const fetchData = async (): Promise<void> => {

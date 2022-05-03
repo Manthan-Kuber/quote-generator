@@ -1,9 +1,7 @@
 import { Nav, RandomContainer } from "./Navbar.styles";
 import { ImSpinner11 } from "react-icons/im";
 
-const Navbar: React.FunctionComponent<{
-  onClick: () => Promise<void>;
-}> = ({ onClick }) => {
+const Navbar = ({ onClick }: { onClick: () => Promise<void> }) => {
   return (
     <Nav>
       <RandomContainer onClick={onClick}>

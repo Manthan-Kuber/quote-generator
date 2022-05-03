@@ -3,8 +3,9 @@ import { QuoteWrapper, Title } from "./AuthorPage.styles.";
 import { BaseUrl } from "../../App";
 import { useState, useEffect } from "react";
 import Quote from "../../components/Quote/Quote";
+import { motion } from "framer-motion";
 
-const AuthorPage: React.FunctionComponent<DataProps> = ({ data }) => {
+const AuthorPage = ({ data }:DataProps) => {
   const [authorQuotes, setAuthorQuotes] = useState<authorQuotesData>();
   const authorName = data?.authorSlug;
   const fetchAuthorQuotes = async (): Promise<void> => {
@@ -23,9 +24,22 @@ const AuthorPage: React.FunctionComponent<DataProps> = ({ data }) => {
 
   return (
     <div>
-      <Title>{data?.author}</Title>
+      <Title
+        as={motion.h1}
+        initial={{ opacity: 0, x: 100 }}
+        animate={{
+          opacity: 1,
+          x: 0,
+          transition: {
+            when: "beforeChildren",
+            duration: 0.3,
+          },
+        }}
+      >
+        {data?.author}
+      </Title>
       <QuoteWrapper>
-        {authorQuotes?.results.map((quote,index) => (
+        {authorQuotes?.results.map((quote, index) => (
           <Quote key={quote._id} data={quote} index={index} />
         ))}
       </QuoteWrapper>

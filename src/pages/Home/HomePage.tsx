@@ -8,22 +8,24 @@ import { LoadingIcon } from "../Author/AuthorPage.styles.";
 const HomePage = ({ data, loading }: DataProps) => {
   let navigate = useNavigate();
   return (
-    <Container>
+    <>
       {loading ? (
         <LoadingIcon size={36} />
       ) : (
         <>
-          <Quote data={data} />
-          <AuthorContainer onClick={() => navigate("/author")}>
-            <div>
-              <h3>{data?.author}</h3>
-              <p>{data?.tags[0]}</p>
-            </div>
-            <MdArrowRightAlt size={36} className="icon" />
-          </AuthorContainer>
+          <Container>
+            <Quote data={data} />
+            <AuthorContainer onClick={() => navigate("/author")}>
+              <div>
+                <h3>{data?.author}</h3>
+                <p>{data?.tags[0]}</p>
+              </div>
+              <MdArrowRightAlt size={36} className="icon" />
+            </AuthorContainer>
+          </Container>
         </>
       )}
-    </Container>
+    </>
   );
 };
 

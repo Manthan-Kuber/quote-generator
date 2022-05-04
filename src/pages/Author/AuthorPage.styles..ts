@@ -24,8 +24,9 @@ export const QuoteWrapper = styled.div`
 `
 export const LoadingIcon = styled(CgSpinnerTwoAlt)`
     position: absolute;
-    inset: 50%;
+    left: 47.5%;
+    top:50%;
+    transform: translate(-50%,-50%);
     animation: 0.69s ${spin} infinite linear;
-    display: grid;
-    place-items: center;
+   
 `

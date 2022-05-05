@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import { MdOutlineArrowBack } from "react-icons/md";
 
 export const spin = keyframes`
   from{
@@ -9,11 +10,22 @@ export const spin = keyframes`
   }
 `;
 
-export const Nav = styled.nav`
+export const Nav = styled.nav<{ iconAlign: boolean }>`
   color: #333;
   font: 500 1.8rem var(--ff-montserrat);
   display: flex;
-  justify-content: flex-end;
+  justify-content: ${(props) =>
+    props.iconAlign ? "space-between" : "flex-end"};
+`;
+
+export const BackIcon = styled(MdOutlineArrowBack)`
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.2);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
 `;
 
 export const RandomContainer = styled.div`

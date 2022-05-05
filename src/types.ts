@@ -12,7 +12,7 @@ export interface dataItem {
 export interface DataProps {
   data: dataItem | undefined;
   index?: number;
-  loading?:boolean;
+  loading?: boolean;
 }
 
 interface quoteItem extends dataItem {

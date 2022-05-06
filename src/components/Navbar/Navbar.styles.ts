@@ -20,12 +20,6 @@ export const Nav = styled.nav<{ iconAlign: boolean }>`
 
 export const BackIcon = styled(MdOutlineArrowBack)`
   cursor: pointer;
-  &:hover {
-    transform: scale(1.2);
-  }
-  &:active {
-    transform: scale(0.9);
-  }
 `;
 
 export const RandomContainer = styled.div`
